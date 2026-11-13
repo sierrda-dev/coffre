@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Coffre 0.1.3 — gestionnaire de mots de passe pour Windows 11</title>
+<title>Coffre 0.1.4 — gestionnaire de mots de passe pour Windows 11</title>
 <style>
   :root { color-scheme: light dark; --accent: #1a6bd8; }
   body { font: 16px/1.55 "Segoe UI Variable", "Segoe UI", system-ui, sans-serif; max-width: 720px; margin: 48px auto; padding: 0 20px; }
@@ -14,10 +14,10 @@
 </style>
 </head>
 <body>
-<h1>Coffre 0.1.3</h1>
+<h1>Coffre 0.1.4</h1>
 <p class="sub">Gestionnaire de mots de passe local pour Windows 11, chiffré de bout en bout, sans compte en ligne.</p>
-<a class="btn" href="https://github.com/sierrda-dev/coffre/releases/download/v0.1.3/Coffre-0.1.3-kit.zip">Télécharger le kit d'installation</a>
-<a class="btn alt" href="https://github.com/sierrda-dev/coffre/releases/download/v0.1.3/Coffre-0.1.3-portable.zip">Version portable</a>
+<a class="btn" href="https://github.com/sierrda-dev/coffre/releases/download/v0.1.4/Coffre-0.1.4-kit.zip">Télécharger le kit d'installation</a>
+<a class="btn alt" href="https://github.com/sierrda-dev/coffre/releases/download/v0.1.4/Coffre-0.1.4-portable.zip">Version portable</a>
 
 <section>
 <h2>Installer</h2>
@@ -33,12 +33,17 @@
 <section>
 <h2>Nouveautés</h2>
 <ul>
-<li>Apr&#232;s une mise &#224; jour, Coffre affiche &#171; Coffre a &#233;t&#233; mis &#224; jour &#187; avec les nouveaut&#233;s de la version install&#233;e, et un lien vers le journal complet.</li>
-<li>R&#233;glages › &#192; propos › Voir le journal des versions ouvre l&#39;historique sur GitHub.</li>
-<li>Chaque version publi&#233;e sur GitHub contient les nouveaut&#233;s compl&#232;tes, la marche &#224; suivre pour installer ou mettre &#224; jour, et l&#39;empreinte SHA-256 de chaque fic…</li>
-<li>La page d&#39;accueil du d&#233;p&#244;t GitHub pr&#233;sente la derni&#232;re version et ses nouveaut&#233;s ; le journal complet y est publi&#233; (CHANGELOG.md).</li>
-<li>Le num&#233;ro de version ne se change plus qu&#39;&#224; un endroit (Directory.Build.props) : l&#39;application, la ligne de commande et le paquet s&#39;alignent dessus.</li>
-<li>Correction : le menu &#171; Copier la r&#233;f&#233;rence &#187; d&#39;un &#233;l&#233;ment Environnement propose bien la commande &#171; coffre run &#187; (la 0.1.1 l&#39;avait plac&#233;e dans &#171; Afficher en g…</li>
+<li>La liste des &#233;l&#233;ments ne cr&#233;e plus que les lignes visibles (une vingtaine), recycl&#233;es en d&#233;filant, au lieu d&#39;une ligne par &#233;l&#233;ment : ouverture, d&#233;filement et…</li>
+<li>La recherche attend 150 ms apr&#232;s la derni&#232;re frappe au lieu de tout recalculer &#224; chaque lettre, et cherche dans un texte pr&#233;par&#233; une fois par &#233;l&#233;ment (titre,…</li>
+<li>L&#39;analyse de la Sentinelle se fait en arri&#232;re-plan : plus de petit gel apr&#232;s chaque enregistrement sur un gros coffre. Les pastilles, le compteur de la barre…</li>
+<li>Mesures de performance dans le journal local de Coffre (%LOCALAPPDATA%\Coffre\coffre.log) : temps de d&#233;marrage, temps d&#39;ouverture du coffre et m&#233;moire utilis…</li>
+<li>Nouvel &#233;cran de verrouillage, &#233;pur&#233; et sans encadr&#233; : ta photo de profil au centre (ou le logo de Coffre), Windows Hello en bouton principal quand il est dis…</li>
+<li>Watchtower devient la Sentinelle (barre lat&#233;rale, page, journal, aide). En ligne de commande : coffre sentinelle (coffre watchtower reste accept&#233;).</li>
+<li>Comportement du remplissage par site web : le bouton &#224; c&#244;t&#233; de chaque adresse propose &#171; Remplir n&#39;importe o&#249; sur ce site web &#187; (par d&#233;faut : toutes les adres…</li>
+<li>Mot de passe dans l&#39;&#233;diteur : au clic, il s&#39;affiche en clair et une bulle propose &#171; Cr&#233;er un nouveau mot de passe &#187;. Le g&#233;n&#233;rateur s&#39;ouvre sous le champ : An…</li>
+<li>R&#233;glages : colonne de gauche avec une tuile de couleur par rubrique, rubrique ouverte en bleu.</li>
+<li>Illustration de la fiche vide redessin&#233;e, plus abstraite : anneaux, formes arrondies et points aux couleurs de Coffre.</li>
+<li>Nouveau test automatique sur un coffre de 5 000 &#233;l&#233;ments (enregistrement, modification, Sentinelle, r&#233;ouverture), pour rep&#233;rer toute version qui ralentirait.</li>
 </ul>
 </section>
 

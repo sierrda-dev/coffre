@@ -6,8 +6,8 @@
   ShowPrompt="false" : c'est Coffre qui affiche sa propre fenêtre de mise à jour ; Windows met aussi à jour
   en arrière-plan, application fermée.
 -->
-<AppInstaller xmlns="http://schemas.microsoft.com/appx/appinstaller/2021" Version="0.1.3.0" Uri="https://sierrda-dev.github.io/coffre/Coffre.appinstaller">
-  <MainPackage Name="Erc.Coffre" Publisher="CN=Erc" Version="0.1.3.0" ProcessorArchitecture="x64" Uri="https://github.com/sierrda-dev/coffre/releases/download/v0.1.3/Coffre_0.1.3_x64.msix" />
+<AppInstaller xmlns="http://schemas.microsoft.com/appx/appinstaller/2021" Version="0.1.4.0" Uri="https://sierrda-dev.github.io/coffre/Coffre.appinstaller">
+  <MainPackage Name="Erc.Coffre" Publisher="CN=Erc" Version="0.1.4.0" ProcessorArchitecture="x64" Uri="https://github.com/sierrda-dev/coffre/releases/download/v0.1.4/Coffre_0.1.4_x64.msix" />
   <UpdateSettings>
     <OnLaunch HoursBetweenUpdateChecks="24" ShowPrompt="false" UpdateBlocksActivation="false" />
     <AutomaticBackgroundTask />

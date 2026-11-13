@@ -1,13 +1,18 @@
 {
-    "version":  "0.1.3",
+    "version":  "0.1.4",
     "date":  "2026-11-13",
     "notes":  [
-                  "Après une mise à jour, Coffre affiche « Coffre a été mis à jour » avec les nouveautés de la version installée, et un lien vers le journal complet.",
-                  "Réglages › À propos › Voir le journal des versions ouvre l\u0027historique sur GitHub.",
-                  "Chaque version publiée sur GitHub contient les nouveautés complètes, la marche à suivre pour installer ou mettre à jour, et l\u0027empreinte SHA-256 de chaque fic…",
-                  "La page d\u0027accueil du dépôt GitHub présente la dernière version et ses nouveautés ; le journal complet y est publié (CHANGELOG.md).",
-                  "Le numéro de version ne se change plus qu\u0027à un endroit (Directory.Build.props) : l\u0027application, la ligne de commande et le paquet s\u0027alignent dessus.",
-                  "Correction : le menu « Copier la référence » d\u0027un élément Environnement propose bien la commande « coffre run » (la 0.1.1 l\u0027avait placée dans « Afficher en g…"
+                  "La liste des éléments ne crée plus que les lignes visibles (une vingtaine), recyclées en défilant, au lieu d\u0027une ligne par élément : ouverture, défilement et…",
+                  "La recherche attend 150 ms après la dernière frappe au lieu de tout recalculer à chaque lettre, et cherche dans un texte préparé une fois par élément (titre,…",
+                  "L\u0027analyse de la Sentinelle se fait en arrière-plan : plus de petit gel après chaque enregistrement sur un gros coffre. Les pastilles, le compteur de la barre…",
+                  "Mesures de performance dans le journal local de Coffre (%LOCALAPPDATA%\\Coffre\\coffre.log) : temps de démarrage, temps d\u0027ouverture du coffre et mémoire utilis…",
+                  "Nouvel écran de verrouillage, épuré et sans encadré : ta photo de profil au centre (ou le logo de Coffre), Windows Hello en bouton principal quand il est dis…",
+                  "Watchtower devient la Sentinelle (barre latérale, page, journal, aide). En ligne de commande : coffre sentinelle (coffre watchtower reste accepté).",
+                  "Comportement du remplissage par site web : le bouton à côté de chaque adresse propose « Remplir n\u0027importe où sur ce site web » (par défaut : toutes les adres…",
+                  "Mot de passe dans l\u0027éditeur : au clic, il s\u0027affiche en clair et une bulle propose « Créer un nouveau mot de passe ». Le générateur s\u0027ouvre sous le champ : An…",
+                  "Réglages : colonne de gauche avec une tuile de couleur par rubrique, rubrique ouverte en bleu.",
+                  "Illustration de la fiche vide redessinée, plus abstraite : anneaux, formes arrondies et points aux couleurs de Coffre.",
+                  "Nouveau test automatique sur un coffre de 5 000 éléments (enregistrement, modification, Sentinelle, réouverture), pour repérer toute version qui ralentirait."
               ],
     "appinstaller":  "https://sierrda-dev.github.io/coffre/Coffre.appinstaller",
     "download":  "https://github.com/sierrda-dev/coffre/releases/latest",

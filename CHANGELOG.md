@@ -1,5 +1,20 @@
 # Journal des versions
 
+## 0.1.4 — 13 novembre 2026
+
+**Plus rapide, nouvel écran de verrouillage, éditeur et réglages revus**
+- La liste des éléments ne crée plus que les lignes visibles (une vingtaine), recyclées en défilant, au lieu d'une ligne par élément : ouverture, défilement et changement de coffre ou de filtre restent fluides même avec des milliers d'éléments. Apparence, regroupements, clic droit et flèches du clavier inchangés.
+- La recherche attend 150 ms après la dernière frappe au lieu de tout recalculer à chaque lettre, et cherche dans un texte préparé une fois par élément (titre, identifiant, e-mail, site, tags, notes).
+- L'analyse de la Sentinelle se fait en arrière-plan : plus de petit gel après chaque enregistrement sur un gros coffre. Les pastilles, le compteur de la barre latérale et la fiche ouverte se mettent à jour d'eux-mêmes.
+- Mesures de performance dans le journal local de Coffre (%LOCALAPPDATA%\Coffre\coffre.log) : temps de démarrage, temps d'ouverture du coffre et mémoire utilisée. Rien n'est envoyé.
+- **Nouvel écran de verrouillage**, épuré et sans encadré : ta photo de profil au centre (ou le logo de Coffre), Windows Hello en bouton principal quand il est disponible, puis le mot de passe ; avertissement « Verr. Maj est activée », secousse du champ en cas d'erreur, rappel du verrouillage automatique et de Ctrl+Q en bas. Ton nom n'apparaît jamais. La photo est copiée hors du coffre pour s'afficher avant le déverrouillage : Réglages › Sécurité › « Photo sur l'écran de verrouillage » pour la retirer.
+- **Watchtower devient la Sentinelle** (barre latérale, page, journal, aide). En ligne de commande : `coffre sentinelle` (`coffre watchtower` reste accepté).
+- **Comportement du remplissage par site web** : le bouton à côté de chaque adresse propose « Remplir n'importe où sur ce site web » (par défaut : toutes les adresses du même site, par exemple login.exemple.fr et www.exemple.fr), « Remplir uniquement sur cet hôte précis » ou « Ne jamais remplir sur ce site web », avec une phrase qui dit où l'élément sera proposé.
+- **Mot de passe dans l'éditeur** : au clic, il s'affiche en clair et une bulle propose « Créer un nouveau mot de passe ». Le générateur s'ouvre sous le champ : Annuler, ↻, Utiliser ; aperçu avec chiffres en bleu et symboles en rouge, barre de robustesse ; type (aléatoire, mémorisable, code PIN), nombre de caractères, chiffres, symboles. Les choix sont mémorisés.
+- **Réglages** : colonne de gauche avec une tuile de couleur par rubrique, rubrique ouverte en bleu.
+- **Illustration** de la fiche vide redessinée, plus abstraite : anneaux, formes arrondies et points aux couleurs de Coffre.
+- Nouveau test automatique sur un coffre de 5 000 éléments (enregistrement, modification, Sentinelle, réouverture), pour repérer toute version qui ralentirait.
+
 ## 0.1.3 — 13 novembre 2026
 
 **Nouveautés visibles et publication**
@@ -41,7 +56,7 @@
 ## 0.1.0 — 13 novembre 2026
 
 **Première version d'utilisation**
-- **Watchtower redessinée**, d'après 1Password 8 :
+- **Sentinelle redessinée** :
   - **En-tête** : titre, explication, bouton **Partager mon score** (copie un résumé sans aucune information sur tes éléments), et cadran du score à droite (arc dégradé, graduations, appréciation « FANTASTIQUE », « TRÈS BON »…).
   - **Robustesse globale des mots de passe** : barre en cinq couleurs, de « Fantastique » à « Très faible », avec légende.
   - **Grandes tuiles** sur trois colonnes, seulement pour les problèmes réels : nombre, titre, explication, icône pâle, et « Afficher les éléments → ». Nouvelles tuiles : **Clé de récupération manquante** (→ Configurer) et **Éléments avec doublons** (même site et même identifiant).
@@ -60,7 +75,7 @@
   - le kit contient `coffre.exe` et « Installer la ligne de commande ».
 - **Plugins** : `coffre plugin init gh coffre://Personnel/GitHub`, puis `coffre gh …` injecte GH_TOKEN, sans fichier de configuration en clair. 14 outils sont pris en charge : gh, glab, aws, az, npm, docker, openai, claude, stripe, hf, vercel, netlify, doctl, terraform.
 - **Signature des commits Git** avec une clé SSH du coffre, via l'agent de Coffre (accord demandé à chaque signature). Elle se configure par `coffre git setup` ou par Réglages › Développeur › Configurer Git. Vérifié : `git verify-commit` et `ssh-keygen -Y verify` acceptent les signatures Ed25519, ECDSA et RSA.
-- **Watchtower développeur** :
+- **Sentinelle développeur** :
   - repère les clés SSH privées sans phrase de passe dans ~/.ssh ;
   - analyse un dossier de code à la recherche de secrets en clair : jetons GitHub, clés AWS, Stripe, OpenAI, Anthropic, Slack, Google, npm, clés privées, mots de passe dans les .env (valeurs masquées) ;
   - aussi disponible par `coffre scan <dossier>`.
@@ -68,7 +83,7 @@
 - **Afficher en grand** : caractères géants numérotés (chiffres en bleu, symboles en rouge) dans une fenêtre épinglable au-dessus des autres, fermée au verrouillage.
 - **Clic droit dans la liste** : ouvrir, copier l'identifiant, le mot de passe ou le code 2FA, ouvrir le site, afficher en grand, copier la référence, favori, modifier, corbeille.
 - **Saisie automatique** depuis l'accès rapide (**Ctrl+Maj+Entrée**) : Coffre revient à l'application précédente et y tape l'identifiant, Tab, puis le mot de passe, sans passer par le presse-papiers.
-- **Page Profil** séparée des réglages, comme dans 1Password :
+- **Page Profil** séparée des réglages :
   - photo et nom, avec le bouton « Gérer le profil » ;
   - carte **Identité** (adresse, téléphone, e-mail ; « Mettre à jour l'identité », « Changer ») ;
   - carte **Moyen de paiement** (« Sélectionner » la carte par défaut). L'extension propose cette identité et cette carte en premier.
@@ -95,11 +110,11 @@
 
 ## 0.0.7.1 — 12 novembre 2026
 
-**Interface, au plus près de 1Password 8 (d'après les captures fournies)**
+**Interface repensée**
 - **Barre latérale claire**, gris très léger, à la place du bleu nuit. On y trouve :
   - « Coffre ⋮ » en haut ;
   - le sélecteur « Tous les coffres » suivi d'un séparateur ;
-  - Profil, Tous les éléments, Favoris, Watchtower et Développeur (clés SSH et clés d'API) ;
+  - Profil, Tous les éléments, Favoris, Sentinelle et Développeur (clés SSH et clés d'API) ;
   - les coffres sous le nom du propriétaire, avec + pour en créer un ;
   - les tags avec une icône verte.
 - **Barre d'outils** : ← →, champ « Rechercher dans tous les coffres » avec loupe, lien bleu « Aide » et bouton bleu « + Nouvel élément ».
@@ -118,7 +133,7 @@
   - « + ajouter plus », pour l'e-mail, la 2FA et les champs personnalisés ;
   - remarques, puis tags en pastilles avec « + Ajouter un tag » ;
   - pied « propriétaire | coffre ▾ » et bouton « Enregistrer » (Ctrl+S).
-- **Écran de verrouillage dans le style de 1Password 8** :
+- **Nouvel écran de verrouillage** :
   - la barre latérale grise reste visible, vide, avec « Coffre ⋮ » ;
   - au centre : le logo de Coffre, le champ « Entrez votre mot de passe » avec sa flèche bleue, et une ligne d'aide pour Windows Hello ;
   - le menu ⋮ propose : ouvrir un autre coffre, créer un coffre, mot de passe oublié, mises à jour, aide, fermer (Ctrl+W) et quitter (Ctrl+Q). Les actions qui demandent un coffre ouvert y sont grisées.
@@ -127,7 +142,7 @@
 ## 0.0.7 — 12 novembre 2026
 
 **Partager et protéger**
-- **Clé secrète** (équivalent de la Secret Key de 1Password) : clé aléatoire de 128 bits combinée au mot de passe maître (HKDF-SHA256). Une copie volée du fichier ne peut plus être attaquée par force brute. Elle est mémorisée sur l'appareil (DPAPI, compte Windows) et demandée une seule fois sur un nouvel ordinateur. Elle figure dans le kit d'urgence et se règle dans Réglages › Sécurité.
+- **Clé secrète** : clé aléatoire de 128 bits combinée au mot de passe maître (HKDF-SHA256). Une copie volée du fichier ne peut plus être attaquée par force brute. Elle est mémorisée sur l'appareil (DPAPI, compte Windows) et demandée une seule fois sur un nouvel ordinateur. Elle figure dans le kit d'urgence et se règle dans Réglages › Sécurité.
 - **Mode voyage** : les coffres non marqués « sûrs pour le voyage » sont retirés de l'ordinateur et placés dans une archive chiffrée (`.coffre-voyage`) à ranger ailleurs, puis réintégrés au retour.
   - L'archive est vérifiée avant toute suppression.
   - Les sauvegardes automatiques sont suspendues pendant le voyage, et les sauvegardes locales existantes peuvent être supprimées.
@@ -153,13 +168,13 @@
 
 ## 0.0.6 — 12 novembre 2026
 
-**Remplir plus vite** : accès rapide (Ctrl+Maj+Espace) ; remplissage des cartes bancaires et des identités dans Chrome et Edge ; identifiant sur deux pages ; générateur de noms d'utilisateur (mots, aléatoire, alias « +site ») ; questions de sécurité avec réponse générée ; catalogue de 90 services à la création d'un élément ; brouillons chiffrés conservés au verrouillage ; Watchtower « Passkeys disponibles ».
+**Remplir plus vite** : accès rapide (Ctrl+Maj+Espace) ; remplissage des cartes bancaires et des identités dans Chrome et Edge ; identifiant sur deux pages ; générateur de noms d'utilisateur (mots, aléatoire, alias « +site ») ; questions de sécurité avec réponse générée ; catalogue de 90 services à la création d'un élément ; brouillons chiffrés conservés au verrouillage ; Sentinelle « Passkeys disponibles ».
 **Ligne de commande** : `coffre add` et `coffre generate --username`.
 **Tests** : 36 tests unitaires ; nouveau test de bout en bout `tests/e2e/forms.e2e.js` (cartes, identités, nom d'utilisateur, deux pages).
 
 ## 0.0.5 — 12 novembre 2026
 
-**Interface** : disposition de 1Password 8 : barre latérale bleu nuit (compte, Tous les éléments, Favoris, Watchtower, coffres et tags repliables, Archives, Supprimés récemment) ; barre d'outils en haut (précédent/suivant, recherche, aide, « Nouvel élément ») ; liste avec filtre « Toutes les catégories », tri, groupes par lettre, étoile des favoris et sélection bleue ; fiche avec propriétaire et coffre (déplacement vers un autre coffre), grande icône, champs en carte aux libellés bleu-violet, robustesse à droite du mot de passe, code à usage unique « 553 • 740 » avec compte à rebours, adresses web et détails sous la carte.
+**Interface** : nouvelle disposition : barre latérale bleu nuit (compte, Tous les éléments, Favoris, Sentinelle, coffres et tags repliables, Archives, Supprimés récemment) ; barre d'outils en haut (précédent/suivant, recherche, aide, « Nouvel élément ») ; liste avec filtre « Toutes les catégories », tri, groupes par lettre, étoile des favoris et sélection bleue ; fiche avec propriétaire et coffre (déplacement vers un autre coffre), grande icône, champs en carte aux libellés bleu-violet, robustesse à droite du mot de passe, code à usage unique « 553 • 740 » avec compte à rebours, adresses web et détails sous la carte.
 **Corrections** : compilation WinUI 3 (ScrollViewer scellé, conflits de noms), profil de lancement MSIX (`launchSettings.json`), déploiement activé dans la solution (x64 et ARM64), plantage au démarrage lié à la couleur d'accent, message d'erreur explicite si l'application ne peut pas démarrer.
 
 ## 0.0.4 — 9 novembre 2026
@@ -168,7 +183,7 @@ Première version native Windows 11 (WinUI 3, .NET 10, MSIX), qui remplace l'app
 
 **Indispensables** : remplissage automatique Chrome/Edge (icône dans les champs, enregistrement et mise à jour proposés, générateur, codes 2FA) ; kit d'urgence PDF et clé de récupération ; sauvegardes automatiques chiffrées et vérifiées ; tests automatisés Windows et Linux en CI.
 **Distribution** : paquet MSIX x64/ARM64, mises à jour automatiques par .appinstaller, signature en CI, extension prête pour le Chrome Web Store et Edge Add-ons, version portable.
-**Fonctions avancées** : pièces jointes chiffrées ; historique des versions ; imports 1Password, Bitwarden, KeePass, CSV ; clés SSH et agent SSH ; envoi sécurisé ; Watchtower en continu.
+**Fonctions avancées** : pièces jointes chiffrées ; historique des versions ; imports 1Password, Bitwarden, KeePass, CSV ; clés SSH et agent SSH ; envoi sécurisé ; Sentinelle en continu.
 **Équipe et conformité** : stratégie d'organisation, journal d'activité exportable, accessibilité, anglais, modèles de documents juridiques.
 **Sécurité** : nouvelle hiérarchie de clés (format 3), écran exclu des captures, presse-papiers hors historique, ligne de commande.
 
