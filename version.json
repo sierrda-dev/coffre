@@ -1,12 +1,13 @@
 {
-    "version":  "0.1.2",
+    "version":  "0.1.3",
     "date":  "2026-11-13",
     "notes":  [
-                  "Coffre vérifie chaque jour s\u0027il existe une nouvelle version et propose de l\u0027installer, avec la liste des nouveautés.",
-                  "« Mettre à jour maintenant » : Coffre se verrouille, Windows télécharge et installe la version signée, puis relance Coffre ; coffre et réglages conservés.",
-                  "« Plus tard » repousse la proposition de trois jours ; Réglages › À propos › Mises à jour automatiques pour désactiver.",
-                  "Version portable : la fenêtre ouvre la page de téléchargement.",
-                  "Site des mises à jour : https://sierrda-dev.github.io/coffre ; tools/release.ps1 -Publish publie la version GitHub et le site en une commande."
+                  "Après une mise à jour, Coffre affiche « Coffre a été mis à jour » avec les nouveautés de la version installée, et un lien vers le journal complet.",
+                  "Réglages › À propos › Voir le journal des versions ouvre l\u0027historique sur GitHub.",
+                  "Chaque version publiée sur GitHub contient les nouveautés complètes, la marche à suivre pour installer ou mettre à jour, et l\u0027empreinte SHA-256 de chaque fic…",
+                  "La page d\u0027accueil du dépôt GitHub présente la dernière version et ses nouveautés ; le journal complet y est publié (CHANGELOG.md).",
+                  "Le numéro de version ne se change plus qu\u0027à un endroit (Directory.Build.props) : l\u0027application, la ligne de commande et le paquet s\u0027alignent dessus.",
+                  "Correction : le menu « Copier la référence » d\u0027un élément Environnement propose bien la commande « coffre run » (la 0.1.1 l\u0027avait placée dans « Afficher en g…"
               ],
     "appinstaller":  "https://sierrda-dev.github.io/coffre/Coffre.appinstaller",
     "download":  "https://github.com/sierrda-dev/coffre/releases/latest",
