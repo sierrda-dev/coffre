@@ -1,0 +1,14 @@
+{
+    "version":  "0.1.2",
+    "date":  "2026-11-13",
+    "notes":  [
+                  "Coffre vérifie chaque jour s\u0027il existe une nouvelle version et propose de l\u0027installer, avec la liste des nouveautés.",
+                  "« Mettre à jour maintenant » : Coffre se verrouille, Windows télécharge et installe la version signée, puis relance Coffre ; coffre et réglages conservés.",
+                  "« Plus tard » repousse la proposition de trois jours ; Réglages › À propos › Mises à jour automatiques pour désactiver.",
+                  "Version portable : la fenêtre ouvre la page de téléchargement.",
+                  "Site des mises à jour : https://sierrda-dev.github.io/coffre ; tools/release.ps1 -Publish publie la version GitHub et le site en une commande."
+              ],
+    "appinstaller":  "https://sierrda-dev.github.io/coffre/Coffre.appinstaller",
+    "download":  "https://github.com/sierrda-dev/coffre/releases/latest",
+    "minimum":  ""
+}

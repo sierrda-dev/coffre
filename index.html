@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Coffre 0.1.2 — gestionnaire de mots de passe pour Windows 11</title>
+<style>
+  :root { color-scheme: light dark; --accent: #1a6bd8; }
+  body { font: 16px/1.55 "Segoe UI Variable", "Segoe UI", system-ui, sans-serif; max-width: 720px; margin: 48px auto; padding: 0 20px; }
+  h1 { font-size: 30px; margin: 0 0 4px; } .sub { opacity: .7; margin: 0 0 28px; }
+  a.btn { display: inline-block; background: var(--accent); color: #fff; padding: 10px 18px; border-radius: 8px; text-decoration: none; font-weight: 600; margin: 4px 8px 4px 0; }
+  a.alt { background: transparent; color: var(--accent); border: 1px solid var(--accent); }
+  section { margin-top: 32px; } li { margin: 4px 0; } code { background: rgba(127,127,127,.15); padding: 1px 5px; border-radius: 4px; }
+</style>
+</head>
+<body>
+<h1>Coffre 0.1.2</h1>
+<p class="sub">Gestionnaire de mots de passe local pour Windows 11, chiffré de bout en bout, sans compte en ligne.</p>
+<a class="btn" href="https://github.com/sierrda-dev/coffre/releases/download/v0.1.2/Coffre-0.1.2-kit.zip">Télécharger le kit d'installation</a>
+<a class="btn alt" href="https://github.com/sierrda-dev/coffre/releases/download/v0.1.2/Coffre-0.1.2-portable.zip">Version portable</a>
+
+<section>
+<h2>Installer</h2>
+<ol>
+  <li>Clic droit sur le zip téléchargé › <b>Extraire tout</b>.</li>
+  <li>Double-clic sur <b>Installer Coffre</b>, puis accepter l'éditeur de Coffre (une seule fois par ordinateur).</li>
+  <li>Ensuite, Coffre se met à jour tout seul : il te propose chaque nouvelle version.</li>
+</ol>
+<p>Déjà installé ? Ouvre Coffre › Réglages › À propos › <b>Rechercher une mise à jour</b>.</p>
+</section>
+
+<section>
+<h2>Nouveautés</h2>
+<ul>
+<li>Coffre v&#233;rifie chaque jour s&#39;il existe une nouvelle version et propose de l&#39;installer, avec la liste des nouveaut&#233;s.</li>
+<li>&#171; Mettre &#224; jour maintenant &#187; : Coffre se verrouille, Windows t&#233;l&#233;charge et installe la version sign&#233;e, puis relance Coffre ; coffre et r&#233;glages conserv&#233;s.</li>
+<li>&#171; Plus tard &#187; repousse la proposition de trois jours ; R&#233;glages › &#192; propos › Mises &#224; jour automatiques pour d&#233;sactiver.</li>
+<li>Version portable : la fen&#234;tre ouvre la page de t&#233;l&#233;chargement.</li>
+<li>Site des mises &#224; jour : https://sierrda-dev.github.io/coffre ; tools/release.ps1 -Publish publie la version GitHub et le site en une commande.</li>
+</ul>
+</section>
+
+<section>
+<h2>Sécurité</h2>
+<p>Les paquets sont signés par le certificat <a href="Coffre.cer">Coffre.cer</a> (éditeur <code>CN=Erc</code>). Windows refuse toute mise à jour signée par un autre certificat. Ce site ne reçoit aucune donnée de ton coffre : Coffre y lit seulement <a href="version.json">version.json</a>.</p>
+</section>
+</body>
+</html>

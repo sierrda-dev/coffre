@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Mises à jour automatiques de Coffre (0.1.2). Publié sur https://sierrda-dev.github.io/coffre/Coffre.appinstaller
+  par tools\release.ps1 ; les paquets sont des fichiers de la version GitHub (Releases) correspondante.
+  Windows n'installe une version que si elle est signée par le même certificat que celle en place.
+  ShowPrompt="false" : c'est Coffre qui affiche sa propre fenêtre de mise à jour ; Windows met aussi à jour
+  en arrière-plan, application fermée.
+-->
+<AppInstaller xmlns="http://schemas.microsoft.com/appx/appinstaller/2021" Version="0.1.2.0" Uri="https://sierrda-dev.github.io/coffre/Coffre.appinstaller">
+  <MainPackage Name="Erc.Coffre" Publisher="CN=Erc" Version="0.1.2.0" ProcessorArchitecture="x64" Uri="https://github.com/sierrda-dev/coffre/releases/download/v0.1.2/Coffre_0.1.2_x64.msix" />
+  <UpdateSettings>
+    <OnLaunch HoursBetweenUpdateChecks="24" ShowPrompt="false" UpdateBlocksActivation="false" />
+    <AutomaticBackgroundTask />
+    <ForceUpdateFromAnyVersion>false</ForceUpdateFromAnyVersion>
+  </UpdateSettings>
+</AppInstaller>
